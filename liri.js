@@ -39,7 +39,6 @@ function writeToLog(){
     });
 }
 
-
 function spotifyThisSong(){
     if (userInput === "")
         userInput = "The Sign"
@@ -128,6 +127,7 @@ function doThis(){
         //console.log(data);  
         var liriDo = data.split(" ");
         command = liriDo[0];
+        userInput = "";
         for (var i = 1; i < liriDo.length; i++){
             userInput += liriDo[i] + " ";
         }
