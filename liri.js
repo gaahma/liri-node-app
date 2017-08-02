@@ -77,8 +77,10 @@ function myTweets(){
         access_token_key: keys.twitterKeys.access_token_key,
         access_token_secret: keys.twitterKeys.access_token_secret
     });
-
-    var params = {screen_name: 'gaahmamhaag'};
+    var screenName;
+    if(userInput === "")
+        userInput = "gaahmamhaag" //default to my twitter
+    var params = {screen_name: userInput};
     client.get('statuses/user_timeline', params, function(error, tweets, response) {
         if (!error) {
             for(var i = 0; i < tweets.length; i++){
@@ -87,7 +89,7 @@ function myTweets(){
                 console.log("Tweeted: " + time[0].trim() + "\n");     
             }
         } else {
-            console.log(error);
+            console.log(error[0].message);
         }
     });
 }
