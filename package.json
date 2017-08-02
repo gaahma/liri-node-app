@@ -1,0 +1,24 @@
+{
+  "name": "liri-node-app",
+  "version": "1.0.0",
+  "description": "Liri takes commands from user and retrieves information from twitter, spotify, or omdb",
+  "main": "liri.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gaahma/liri-node-app.git"
+  },
+  "author": "Adam Haag",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gaahma/liri-node-app/issues"
+  },
+  "homepage": "https://github.com/gaahma/liri-node-app#readme",
+  "dependencies": {
+    "moment": "^2.18.1",
+    "node-spotify-api": "^1.0.6",
+    "twitter": "^1.7.1"
+  }
+}
