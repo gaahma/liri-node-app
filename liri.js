@@ -7,23 +7,21 @@ var userInput = "";
 for(var i = 3; i < process.argv.length; i++){
     userInput += process.argv[i] + " ";
 } 
-
-
 liri();
 
 function liri(){
     writeToLog();
     switch (command){
-        case "spotify":
+        case "spotify-this-song":
             spotifyThisSong();
             break;
-        case "twitter":
+        case "my-tweets":
             myTweets();
             break;
-        case "movie":
+        case "movie-this":
             movieThis();
             break;
-        case "do-this":
+        case "do-what-it-says":
             doThis();
             break;
         default:
@@ -31,7 +29,15 @@ function liri(){
     }
 }
 
-
+function writeToLog(){
+    var fs = require("fs");
+    var time = moment().format();
+    fs.appendFile("log.txt", `${time} ${command} ${userInput}\n`, function (err){
+        if (err){
+            return console.log(err);
+        }
+    });
+}
 
 
 function spotifyThisSong(){
@@ -129,15 +135,6 @@ function doThis(){
     });
 }
 
-function writeToLog(){
-    var fs = require("fs");
-    var time = moment().format();
-    fs.appendFile("log.txt", `${time} ${command} ${userInput}\n`, function (err){
-        if (err){
-            return console.log(err);
-        }
-        console.log("Activity logged");
-    });
-}
+
 
 
